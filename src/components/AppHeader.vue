@@ -14,7 +14,7 @@ export default {
 
 <template>
     <div>
-        <label for="user-searchbar">insert movie to search for</label>
+        <label for="user-searchbar">insert movie or TV show to search for</label>
         <input type="text" name="user-searchbar" id="user-searchbar" v-model="store.searchedText">
         <button @click="$emit('search')">search</button>
     </div>
