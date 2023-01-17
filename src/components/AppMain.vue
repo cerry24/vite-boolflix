@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <h2>movies</h2>
+    <h2>Movies</h2>
     <section id="movies">
         <CardComponent v-for="movieEl in store.movieList" :title="movieEl.title" :originalTitle="movieEl.original_title"
             :language="movieEl.original_language" :languageFlag="getImagePath(movieEl.original_language)"
@@ -43,6 +43,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
+h2 {
+    font-size: 30px;
+    color: $main-accent-color;
+    margin-bottom: .5rem;
+}
+
 #movies,
 #tvshows {
     display: flex;

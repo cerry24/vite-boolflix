@@ -19,16 +19,76 @@ export default {
 
 <template>
     <article>
-        <img :src="posterUrl + posterPath" :alt="`${title}poster`">
-        <h3>{{ title }}</h3>
-        <h5>{{ originalTitle }}</h5>
-        Language:
-        <img :src="languageFlag" :alt="language" class="poster-img">
-        Rating:
-        <font-awesome-icon icon="fa-solid fa-star" v-for="n in (Math.ceil(rating / 2))" class="star" />
+        <div class="poster">
+            <img :src="posterUrl + posterPath" :alt="`${title}poster`" class="poster-img">
+        </div>
+
+        <div class="info">
+            <ul>
+                <li>
+                    <span>Titolo:</span> {{ title }}
+                </li>
+                <li>
+                    <span>Titolo originale:</span> {{ originalTitle }}
+                </li>
+                <li>
+                    <span>Language: </span>
+                    <img :src="languageFlag" :alt="language" class="flag-img">
+                </li>
+                <li>
+                    <span>Rating: </span>
+                    <font-awesome-icon icon="fa-solid fa-star" v-for="n in (Math.ceil(rating / 2))" class="star" />
+                </li>
+            </ul>
+        </div>
     </article>
 </template>
         
 <style style lang ="scss" scoped>
+@use '../styles/partials/variables' as *;
 
+article {
+    width: 342px;
+    height: 513px;
+    position: relative;
+}
+
+article:hover .info {
+    display: block;
+}
+
+.poster,
+.info {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+
+.info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: $main-bg-color;
+    color: $main-accent-color;
+    padding: 5rem 1rem;
+
+    span {
+        font-size: 25px;
+    }
+
+    .flag-img {
+        width: 22px;
+    }
+
+    .star {
+        font-size: 22px;
+        color: yellow;
+    }
+}
+
+.poster-img {
+    height: 100%;
+}
 </style>
