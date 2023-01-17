@@ -20,7 +20,7 @@ export default {
     methods: {
         getImagePath: function (imgName) {
             imgName = this.languageFlags.includes(imgName) ? imgName : 'earth';
-            return new URL(`../assets/flag-img/${imgName}.png`, import.meta.url).href;
+            return new URL(`../assets/img/${imgName}.png`, import.meta.url).href;
         }
     }
 }
