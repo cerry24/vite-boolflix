@@ -56,5 +56,6 @@ h2 {
     display: flex;
     margin-bottom: 3.5rem;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 </style>

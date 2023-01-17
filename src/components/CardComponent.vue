@@ -20,7 +20,8 @@ export default {
 <template>
     <article>
         <div class="poster">
-            <img :src="posterUrl + posterPath" :alt="`${title}poster`" class="poster-img">
+            <img v-if="posterPath != null" :src="posterUrl + posterPath" :alt="`${title}poster`" class="poster-img">
+            <img v-else src="../assets/img/poster-not-available.png" alt="">
         </div>
 
         <div class="info">
@@ -61,9 +62,7 @@ article:hover .info {
 .info {
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
 }
-
 
 .info {
     position: absolute;
@@ -73,6 +72,10 @@ article:hover .info {
     background-color: $main-bg-color;
     color: $main-accent-color;
     padding: 5rem 1rem;
+
+    li {
+        margin-bottom: 10px;
+    }
 
     span {
         font-size: 25px;
