@@ -1,15 +1,13 @@
 <script>
 import { store } from '../store.js';
 
-import MovieCard from './MovieCard.vue';
-import TvshowCard from './TvshowCard.vue';
+import CardComponent from './CardComponent.vue';
 
 export default {
     name: 'AppMain',
 
     components: {
-        MovieCard,
-        TvshowCard
+        CardComponent
     },
 
     data() {
@@ -29,21 +27,26 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h2>movies</h2>
-        <MovieCard v-for="movieEl in store.movieList" :title="movieEl.title" :originalTitle="movieEl.original_title"
+    <h2>movies</h2>
+    <section id="movies">
+        <CardComponent v-for="movieEl in store.movieList" :title="movieEl.title" :originalTitle="movieEl.original_title"
             :language="movieEl.original_language" :languageFlag="getImagePath(movieEl.original_language)"
             :posterPath="movieEl.poster_path" :rating="movieEl.vote_average" />
-    </div>
+    </section>
 
-    <div>
-        <h2>TV shows</h2>
-        <TvshowCard v-for="tvshowEl in store.tvShowList" :name="tvshowEl.name" :originalName="tvshowEl.original_name"
+    <h2>TV shows</h2>
+    <section id="tvshows">
+        <CardComponent v-for="tvshowEl in store.tvShowList" :name="tvshowEl.name" :originalName="tvshowEl.original_name"
             :language="tvshowEl.language" :languageFlag="getImagePath(tvshowEl.original_language)"
             :posterPath="tvshowEl.poster_path" :rating="tvshowEl.vote_average" />
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
-
+#movies,
+#tvshows {
+    display: flex;
+    margin-bottom: 3.5rem;
+    overflow-x: scroll;
+}
 </style>
