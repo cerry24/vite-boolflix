@@ -23,8 +23,10 @@ export default {
         <h3>{{ name }}</h3>
         <h5>{{ originalName }}</h5>
         <p>
-            Language: <img :src="languageFlag" :alt="language" class="poster-img">
-            Rating: {{ rating }}
+            Language:
+            <img :src="languageFlag" :alt="language" class="poster-img">
+            Rating:
+            <font-awesome-icon icon="fa-solid fa-star" v-for="n in (Math.ceil(rating / 2))" class="star" />
         </p>
     </article>
 </template>
